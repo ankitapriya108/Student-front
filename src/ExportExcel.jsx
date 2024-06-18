@@ -15,7 +15,7 @@ const ExportExcel = () => {
 
     async function fetchFaculties(){
         try {
-            const response = await axios.get('http://localhost:3000/getAttendanceFaculties');
+            const response = await axios.get('https://student-backend-y2s6.onrender.com/getAttendanceFaculties');
             setFaculties(response.data);
         } catch (error) {
             console.error('Error', error);
@@ -32,7 +32,7 @@ const ExportExcel = () => {
 
         try {
             const facultyParam = selectedFaculties.join(',');
-            const response = await axios.get(`http://localhost:3000/exportAttendancePDF/${startDate}/${endDate}?faculties=${facultyParam}`, {
+            const response = await axios.get(`https://student-backend-y2s6.onrender.com/exportAttendancePDF/${startDate}/${endDate}?faculties=${facultyParam}`, {
                 responseType: 'blob'
             });
 
@@ -58,7 +58,7 @@ const ExportExcel = () => {
         setError(null);
         try {
             const facultyParam = selectedFaculties.join(',');
-            const response = await axios.get(`http://localhost:3000/exportAttendance/${startDate}/${endDate}?faculties=${facultyParam}`, {
+            const response = await axios.get(`https://student-backend-y2s6.onrender.com/exportAttendance/${startDate}/${endDate}?faculties=${facultyParam}`, {
                 responseType: 'blob'
             });
     
@@ -81,7 +81,7 @@ function handleExportJSON() {
         setError('Please select date');
         return;
     }
-    axios.get(`http://localhost:3000/exportAttendanceJSON/${startDate}/${endDate}?faculties=${selectedFaculties.join(',')}`)
+    axios.get(`https://student-backend-y2s6.onrender.com/exportAttendanceJSON/${startDate}/${endDate}?faculties=${selectedFaculties.join(',')}`)
         .then(response => {
             const jsonData = JSON.stringify(response.data);
             const blob = new Blob([jsonData], { type: 'application/json' });

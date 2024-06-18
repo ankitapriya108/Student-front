@@ -24,7 +24,7 @@ function Faculty() {
 
   const handleSaveFaculty = () => {
     console.log("Saving faculty:", facultyList);
-    fetch("http://localhost:3000/saveFaculty", {
+    fetch("https://student-backend-y2s6.onrender.com/saveFaculty", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

@@ -13,7 +13,7 @@ function StudentForm() {
 
   async function fetchFaculties() {
     try {
-      const response = await axios.get("http://localhost:3000/getFaculty");
+      const response = await axios.get("https://student-backend-y2s6.onrender.com/getFaculty");
       if (response.status === 200) {
         const flattenedFaculties = response.data.reduce(
           (acc, obj) => acc.concat(obj.facultyList),
@@ -31,7 +31,7 @@ function StudentForm() {
   async function handleSubmit(event) {
     event.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3000/saveStudent", {
+      const response = await axios.post("https://student-backend-y2s6.onrender.com/saveStudent", {
         students: studentsData,
         faculty,
       });

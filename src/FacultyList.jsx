@@ -9,7 +9,7 @@ function FacultyList() {
 
   async function fetchFaculties() {
     try {
-      const response = await axios.get("http://localhost:3000/getFaculty");
+      const response = await axios.get("https://student-backend-y2s6.onrender.com/getFaculty");
       if (response.status === 200) {
         console.log(response.data);
         setFaculties(response.data);
@@ -27,7 +27,7 @@ function FacultyList() {
 
   const handleDelete = async (id) => {
   try {
-    const response = await axios.delete(`http://localhost:3000/deleteFaculty/${id}`);
+    const response = await axios.delete(`https://student-backend-y2s6.onrender.com/deleteFaculty/${id}`);
     
     if (response.status === 200) {
       console.log('Faculty deleted');
@@ -49,7 +49,7 @@ function FacultyList() {
     try {
       console.log("Selected Faculty IDs to delete:", selectedFacultyIds); 
   
-      const response = await axios.delete("http://localhost:3000/deleteFacultyMany", {
+      const response = await axios.delete("https://student-backend-y2s6.onrender.com/deleteFacultyMany", {
         data: { ids: selectedFacultyIds },
       });
   

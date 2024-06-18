@@ -13,7 +13,7 @@ function DisplayStudents() {
   
     async function fetchFaculties() {
         try {
-            const response = await axios.get("http://localhost:3000/getFaculty");
+            const response = await axios.get("https://student-backend-y2s6.onrender.com/getFaculty");
             if (response.status === 200) {
                 setFaculties(response.data);
             } else {
@@ -27,7 +27,7 @@ function DisplayStudents() {
     async function fetchStudents(faculty) {
         try {
             const response = await axios.get(
-                `http://localhost:3000/getStudent?faculty=${faculty}`
+                `https://student-backend-y2s6.onrender.com/getStudent?faculty=${faculty}`
             );
             if (response.status === 200) {
                 setStudents(response.data);
@@ -41,7 +41,7 @@ function DisplayStudents() {
 
     async function handleDeleteStudent(id) {
       try {
-          const response = await axios.delete(`http://localhost:3000/deleteStudent/${id}`);
+          const response = await axios.delete(`https://student-backend-y2s6.onrender.com/deleteStudent/${id}`);
           if (response.status === 200) {
               console.log("Student deleted successfully");
               fetchStudents(faculty);

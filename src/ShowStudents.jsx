@@ -16,7 +16,7 @@ function ShowStudents() {
 
   async function fetchFaculties() {
     try {
-      const response = await axios.get("http://localhost:3000/getFaculty");
+      const response = await axios.get("https://student-backend-y2s6.onrender.com/getFaculty");
       if (response.status === 200) {
         setFaculties(response.data);
       } else {
@@ -30,7 +30,7 @@ function ShowStudents() {
   async function fetchStudents(faculty) {
     try {
       const response = await axios.get(
-        `http://localhost:3000/getStudent?faculty=${faculty}`
+        `https://student-backend-y2s6.onrender.com/getStudent?faculty=${faculty}`
       );
       if (response.status === 200) {
         setStudents(response.data);
@@ -61,7 +61,7 @@ function ShowStudents() {
 
   async function submitAttendance() {
     try {
-      const response = await axios.post("http://localhost:3000/saveAttendance", {
+      const response = await axios.post("https://student-backend-y2s6.onrender.com/saveAttendance", {
         faculty,
         date: selectedDate,
         attendance: attendance,
